@@ -1,0 +1,149 @@
+
+jeshu@JeshuDenzil UCRT64 ~ (second_branch)
+$ ls
+
+jeshu@JeshuDenzil UCRT64 ~ (second_branch)
+$ cd git_practice
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ ls
+file1.txt  file2.txt  file3.txt  file4.txt  file5.txt  practice.txt
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ touch student.txt
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ nano student.txt
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ cat student.txt
+Name: Jeshu Denzil Deve
+Course: Gen AI
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/jeshu/git_practice/.git/
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        student.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git add student.txt
+warning: in the working copy of 'student.txt', LF will be replaced by CRLF the next time Git touches it
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git commit -m "Student details added"
+[main 2ea4773] Student details added
+ 1 file changed, 2 insertions(+)
+ create mode 100644 student.txt
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git push -u origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 312 bytes | 312.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/jeshu2003/first-repo
+   8e4225f..2ea4773  main -> main
+branch 'main' set up to track 'origin/main'.
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ nano student.txt
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git add student.txt
+warning: in the working copy of 'student.txt', LF will be replaced by CRLF the next time Git touches it
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git commit -m "Updated successfully..."
+[main 24df102] Updated successfully...
+ 1 file changed, 1 insertion(+)
+
+jeshu@JeshuDenzil UCRT64 ~/git_practice (main)
+$ git push -u origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 321 bytes | 321.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/jeshu2003/first-repo
+   2ea4773..24df102  main -> main
+branch 'main' set up to track 'origin/main'.
+
+
+SQL: https://dev.mysql.com/downloads/installer/
+
+Git Commands:
+ 146  git --version
+  147  git init
+  148  git status
+  149  mkdir git_practice
+  150  cd git_practice
+  151  touch file1.txt
+  152  ls
+  153  touch file2.txt
+  154  touch file3.txt
+  155  touch file4.txt
+  156  touch file5.txt
+  157  ls
+  158  rm file2.txt file3.txt file4.txt file5.txt
+  159  ls
+  160  touch file2.txt file3.txt file4.txt file5.txt
+  161  ls
+  162  git add file1.txt
+  163  git commit -m
+  164  git commit -m "First commit..."
+  165  git config --global user.name
+  166  git config --global user.name JESHUDENZILDEVE
+  167  git config --global user.name
+  168  git config --global user.mail
+  169  git config --global user.email
+  170  git log
+  171  git commit -m "First commit..."
+  172  git log
+  173  git add file1.txt
+  174  git commit -m "First commit..."
+  175  clear
+  176  git log --oneline
+  177  git branch
+  178  ls
+  179  git branch "new_branch"
+  180  git branch
+  181  git switch new_branch
+  182  git branch
+  183  git switch -c second_branch
+  184  git history
+  185  history
+  186  git config --global user.name jeshu2003
+  187  git config --global user.name
+  188  git log --oneline
+  189  git init
+  190  git add .
+  191  git commit -m "added all files..."
+  192  git branch -M main
+  193  git remote add origin "https://github.com/jeshu2003/first-repo"
+  194  git push -u origin main
+  195  git push -u origin main
+  196  git init
+  197  git add .
+  198  git commit -m "practice success..."
+  199  git branch -M main
+  200  git remote add origin "https://github.com/jeshu2003/Git_Practice"
+  201  history
+  202  git status
+  203  git config --global user.name
+  204  git config --global user.email
+  205  git log
