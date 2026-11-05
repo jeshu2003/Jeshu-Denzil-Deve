@@ -74,6 +74,7 @@ select * from orders
 where amount > 100;
 select * from orders
 where food_item = "Chocolate Milkshake";
+-- select + order by
 select * from orders
 order by amount desc;
 
