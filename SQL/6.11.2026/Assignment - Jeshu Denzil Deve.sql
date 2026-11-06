@@ -130,6 +130,8 @@ rename table Theatres to Cinema_Halls;
 alter table Movies drop column Rating;
 
 -- 11.Create a backup table named Movies_Backup using the structure and data of the Movies table
+create table Movies_Backup as
+select * from Movies;
 
 -- 12.Display the structure of all four tables
 desc Bookings;

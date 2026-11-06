@@ -30,17 +30,3 @@ insert into employees values
 (103,"Alan","BPO","Voice Process Associate",35000);
 
 select * from employees;
-
-show databases;
-create database marvel;
-use marvel;
-create table Heroes(
-	Hero_no int,
-    Hero_Name varchar(30),
-    Hero_Powers varchar(30)
-);
-describe Heroes;
-insert into Heroes values
-(1,"Spiderman", "Spider powers"),
-(2,"Ironman","Armour");
-select * from Heroes;
