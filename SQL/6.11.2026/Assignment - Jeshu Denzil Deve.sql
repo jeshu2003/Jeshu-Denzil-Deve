@@ -8,27 +8,28 @@ create table Movies(
     Movie_Name varchar(30),
     Genre varchar(30),
     Language varchar(30),
+    Duration int,
     Release_Year int
 );
 
 insert into Movies values
-(101, 'Mad Max: Fury Road', 'Action', 'English', 2015),
-(102, 'John Wick: Chapter 4', 'Action', 'English', 2023),
-(103, 'Interstellar', 'Adventure', 'English', 2014),
-(104, 'Vikram', 'Action', 'Tamil', 2022),
-(105, 'Life of Pi', 'Adventure', 'English', 2012),
-(106, 'The Godfather', 'Crime', 'English', 1972),
-(107, 'Vada Chennai', 'Crime', 'Tamil', 2018),
-(108, 'The Conjuring', 'Horror', 'English', 2013),
-(109, 'Bramayugam', 'Horror', 'Malayalam', 2024),
-(110, 'The Martian', 'Survival', 'English', 2015),
-(111, 'Manjummel Boys', 'Survival', 'Malayalam', 2024),
-(112, '2018: Everyone is a Hero', 'Survival', 'Malayalam', 2023),
-(113, 'Dangal', 'Sports', 'Hindi', 2016),
-(114, 'Sarpatta Parambarai', 'Sports', 'Tamil', 2021);
+(101, 'Mad Max: Fury Road', 'Action', 'English', 120, 2015),
+(102, 'John Wick: Chapter 4', 'Action', 'English', 169, 2023),
+(103, 'Interstellar', 'Adventure', 'English', 169, 2014),
+(104, 'Vikram', 'Action', 'Tamil', 175, 2022),
+(105, 'Life of Pi', 'Adventure', 'English', 127, 2012),
+(106, 'The Godfather', 'Crime', 'English', 175, 1972),
+(107, 'Vada Chennai', 'Crime', 'Tamil', 164, 2018),
+(108, 'The Conjuring', 'Horror', 'English', 112, 2013),
+(109, 'Bramayugam', 'Horror', 'Malayalam', 139, 2024),
+(110, 'The Martian', 'Survival', 'English', 144, 2015),
+(111, 'Manjummel Boys', 'Survival', 'Malayalam', 135, 2024),
+(112, '2018: Everyone is a Hero', 'Survival', 'Malayalam', 150, 2023),
+(113, 'Dangal', 'Sports', 'Hindi', 161, 2016),
+(114, 'Sarpatta Parambarai', 'Sports', 'Tamil', 153, 2021);
 
 select * from Movies;
-truncate table Movies;
+
 -- 3. Create a table named Customers with: Customer_ID, Customer_Name, Email, Phone, Age
 create table Customers(
 	Customer_ID int,
@@ -152,13 +153,15 @@ where Tickets = 0;
 -- 16.A particular customer permanently deleted their account. Delete the customer whose Customer_ID is 105
 delete from Customers
 where Customer_ID = 105;
+select * from Customers;
 
 -- 17.A theatre has stopped operating. Delete the theatre record with Theatre_ID = 4
 delete from Cinema_Halls
 where Theatre_ID = 4;
 
 -- 18.Remove all booking records made before 2025-01-01.
-
+delete from Bookings
+where str_to_date(Booking_Date, '%d-%m-%Y') < '2025-01-01';
 
 -- 19.Delete all movies belonging to the Horror genre.
 delete from Movies
