@@ -71,7 +71,6 @@ where department = "IT");
 3. outer query should use t2 for t1
 */
 
-
 select * from employees t1
 where salary > (
 select avg(salary) from employees t2
