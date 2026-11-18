@@ -114,3 +114,16 @@ where dept_id = 2);
 select * from employees
 where salary > all(select salary from employees
 where dept_id = 3);
+
+select * from employees e
+where emp_id in (select emp_id from employee_projects);
+
+select * from employees t1
+where salary > (select avg(salary)
+from employees t2 where t2.dept_id = t1.dept_id
+group by dept_id);
+
+select * from employees t1
+where salary = (select max(salary)
+from employees t2 where t2.dept_id = t1.dept_id
+group by dept_id);
