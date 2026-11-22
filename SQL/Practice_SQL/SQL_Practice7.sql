@@ -249,3 +249,95 @@ with Employee_Manager as(
     on e1.manager_id = e2.emp_id
     left join departments d1 on e1.dept_id = d1.dept_id
 )select * from Employee_Manager;
+
+with EmployeeDetails as(
+	select distinct emp_id,emp_name,dept_id,salary
+    from employees
+),DepartmentDetails as(
+	select distinct dept_id,dept_name
+    from departments
+)select e.emp_id,e.emp_name,e.salary,d.dept_id,d.dept_name 
+from EmployeeDetails e join DepartmentDetails d
+on e.dept_id = d.dept_id
+order by e.emp_id;
+
+with HighSalary as(
+	select distinct emp_name,salary,"High Salary" as Salary_Category
+    from employees
+    where salary > 45000
+),LowSalary as(
+	select distinct emp_name,salary,"Low Salary" as Salary_Category
+    from employees
+    where salary <= 45000
+)select * from HighSalary union all
+select * from LowSalary
+order by emp_name;
+
+with DepartmentSalary as(
+	select distinct dept_id,round(sum(salary) over(partition by dept_id)) as Total_Salary
+	from employees
+),DepartmentCount as(
+	select distinct dept_id,round(count(*) over(partition by dept_id)) as Employees_Count
+    from employees
+)select ds.dept_id,ds.Total_Salary,dc.Employees_Count from DepartmentSalary ds 
+join DepartmentCount dc on ds.dept_id = dc.dept_id;
+
+with EmployeeDetails as(
+	select distinct emp_id,emp_name,salary,dept_id
+    from employees
+),DepartmentDetails as(
+	select distinct dept_id,dept_name
+    from departments
+),ProjectDetails as(
+	select distinct ep.emp_id,p.project_name,ep.hours_worked
+    from projects p join employee_projects ep
+    on p.project_id = ep.project_id
+)select e.emp_id,e.emp_name,d.dept_name,p.project_name,p.hours_worked
+from EmployeeDetails e left join DepartmentDetails d on e.dept_id = d.dept_id
+left join ProjectDetails p on e.emp_id = p.emp_id
+order by e.emp_id;
+
+with EmployeeRank as(
+	select emp_name,dept_id,hire_date,salary,
+	row_number() over(order by salary desc) as Row_No
+    from employees
+),TopEmployees as(
+	select * from EmployeeRank
+    where Row_No between 1 and 5
+)select * from TopEmployees;
+
+with DepartmentRank as(
+	select emp_name,dept_id,salary,dense_rank() over(partition by dept_id order by salary desc) as Rank_No
+    from employees
+),TopDepartmentEmployees as(
+	select emp_name,dept_id,round(salary) as salary from DepartmentRank
+    where Rank_No = 1
+)select * from TopDepartmentEmployees;
+
+with EmployeeSalary as(
+	select emp_name,dept_id,round(salary) as salary,round(avg(salary) over(partition by dept_id)) as Department_Avg_Salary
+    from employees
+),SalaryComparison as(
+	select emp_name,salary,Department_Avg_Salary from EmployeeSalary  
+    where salary > Department_Avg_Salary
+)select * from SalaryComparison;
+
+with EmployeeRank as(
+	select *,row_number() over(partition by dept_id order by hire_date) as First_Emp
+	from employees
+), FirstEmployee as(
+	select * from EmployeeRank
+    where First_Emp = 1
+)select * from FirstEmployee;
+
+with DepartmentSalary as(
+	select dept_id,round(sum(salary)) as Total_Salary
+    from employees
+    group by dept_id
+),DepartmentRank as(
+	select dept_id,Total_Salary,dense_rank() over(order by Total_Salary desc) as Rank_No
+    from DepartmentSalary
+),TopDepartments as(
+	select * from DepartmentRank
+    where Rank_No <= 3
+)select * from TopDepartments;
