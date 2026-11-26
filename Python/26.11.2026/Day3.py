@@ -13,18 +13,22 @@ Types:
     7. Bitwise ->&,|,^,~,<<,>>
 """
 #1. Arithmetic Operators
+"""
 a,b = int(input("Enter a: ")),int(input("Enter b: "))
-c = a + b
-print("Addition:",c)
-c = a - b
-print("Subtraction:",c)
-c = a * b
-print("Multiplication:",c)
-c = a / b
-print("Division:",c)
-c = a // b
-print("Floor:",c)
-c = a % b
-print("Modulus:",c)
-c = a ** b
-print("Expo:",c)
+print("Addition:",a+b)
+print("Subtraction:",a-b if a > b else b-a)
+print("Multiplication:",a*b)
+print("Division:",a/b)
+print("Floor:",a//b)
+print("Modulus:",a%b)
+print("Expo:",a**b)
+"""
+
+#2. Comparison Operator
+a,b = 10,12
+print(a==b)
+print(a!=b)
+print(a<b)
+print(a<=b)
+print(a>b)
+print(a>=b)
