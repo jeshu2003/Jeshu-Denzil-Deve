@@ -12,3 +12,19 @@ Types:
     6. Identity -> is, is not
     7. Bitwise ->&,|,^,~,<<,>>
 """
+#1. Arithmetic Operators
+a,b = int(input("Enter a: ")),int(input("Enter b: "))
+c = a + b
+print("Addition:",c)
+c = a - b
+print("Subtraction:",c)
+c = a * b
+print("Multiplication:",c)
+c = a / b
+print("Division:",c)
+c = a // b
+print("Floor:",c)
+c = a % b
+print("Modulus:",c)
+c = a ** b
+print("Expo:",c)
