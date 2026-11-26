@@ -115,11 +115,10 @@ print(c is not a)
 """
 
 # 6.Bitwise Operator
-"""
+
 print(bin(5),bin(3),5&3,bin(5&3))
 print(bin(5),bin(3),5|3,bin(5|3))
 print(bin(5),bin(3),5^3,bin(5^3))
 print(bin(5),~5,bin(~5))
 print(bin(5),5<<1,bin(5<<1))
 print(bin(5),5>>1,bin(5>>1))
-"""
